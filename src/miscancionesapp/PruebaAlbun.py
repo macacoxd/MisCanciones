@@ -11,7 +11,13 @@ if __name__ == '__main__':
     #Abre la sesion
     session = Session()
     colecion=Coleccion()
-    if colecion.agregar_album("La incondicional" , 1990 , "Son baladas" , Medio.CD ):
-        print("Se añadio  on exito")
+
+    if colecion.agregar_album("Incondicionales" , 1990 , "Son baladas" , Medio.CD ):
+        print("El album Se añadio  on exito")
     else:
         print ( "Ya se encuentra el album" )
+
+    if colecion.agregar_cancion ( "Amor" , 2 , 30 , "Prisioneros" ):
+        print ( "La canción Se añadio  on exito" )
+    else :
+        print ( "Ya se encuentra la canción" )

@@ -33,3 +33,13 @@ class Coleccion():
 
     def dar_album_por_id(self, album_id):
         return session.query(Album).get(album_id).__dict__
+
+    def agregar_cancion(self, titulo, minutos, segundos, compositor) :
+        busqueda = session.query(Cancion).filter(Cancion.titulo == titulo).all()
+        if len(busqueda) == 0:
+            cancion = Cancion(titulo=titulo, minutos=minutos, segundos=segundos, compositor=compositor)
+            session.add(cancion)
+            session.commit()
+            return True
+        else:
+            return False
