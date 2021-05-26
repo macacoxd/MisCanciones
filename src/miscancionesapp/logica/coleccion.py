@@ -43,3 +43,29 @@ class Coleccion():
             return True
         else:
             return False
+
+    def editar_cancion(self,cancion_id,titulo,compositor) :
+        busqueda = session.query(Cancion).filter(Cancion.cacion_id == cancion_id).all()
+        if len(busqueda) == 0:
+            cancion = Cancion(cancion_id=cancion_id, titulo=titulo, compositor=compositor)
+            session.add(cancion)
+            session.commit()
+            return True
+        else:
+            return False
+
+    def dar_cancion_por_id(self, album_id):
+        return session.query(Cancion).get(cancion_id).__dict__
+
+    def agregar_interprete(self, compositor) :
+        busqueda = session.query(Cancion).filter(Cancion.interpretes == compositor).all()
+        if len(busqueda) == 0:
+            cancion = Cancion(compositor=compositor)
+            session.add(cancion)
+            session.commit()
+            return True
+        else:
+            return False
+
+    def dar_interprete_por_id(self, album_id):
+        return session.query(Interprete).get(interprete_id).__dict__
